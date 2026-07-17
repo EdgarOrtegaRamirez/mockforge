@@ -1,0 +1,26 @@
+# .gitignore
+
+# Build artifacts
+mockforge
+mockforge.exe
+build/
+
+# Go test cache
+.out/
+out/
+test.out/
+*.test
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# go.sum (can be regenerated)
+go.sum
