@@ -4,10 +4,10 @@ package gen
 type OutputFormat string
 
 const (
-	OutputJSON  OutputFormat = "json"
-	OutputCSV   OutputFormat = "csv"
-	OutputSQL   OutputFormat = "sql"
-	OutputYAML  OutputFormat = "yaml"
+	OutputJSON OutputFormat = "json"
+	OutputCSV  OutputFormat = "csv"
+	OutputSQL  OutputFormat = "sql"
+	OutputYAML OutputFormat = "yaml"
 )
 
 // MockGenerator is the main entry point for generating mock data.
@@ -74,13 +74,13 @@ func (g *MockGenerator) GenerateMixed(n int) []map[string]interface{} {
 		case 0:
 			p := GeneratePerson(rng)
 			results[i] = map[string]interface{}{
-				"type":    "person",
-				"first":   p.FirstName,
-				"last":    p.LastName,
-				"email":   p.Email,
-				"phone":   p.Phone,
-				"dob":     p.DOB,
-				"gender":  p.Gender,
+				"type":     "person",
+				"first":    p.FirstName,
+				"last":     p.LastName,
+				"email":    p.Email,
+				"phone":    p.Phone,
+				"dob":      p.DOB,
+				"gender":   p.Gender,
 				"username": p.Username,
 			}
 		case 1:
@@ -98,14 +98,14 @@ func (g *MockGenerator) GenerateMixed(n int) []map[string]interface{} {
 		case 2:
 			c := GenerateCompany(rng)
 			results[i] = map[string]interface{}{
-				"type":     "company",
-				"name":     c.Name,
-				"industry": c.Industry,
-				"email":    c.Email,
-				"phone":    c.Phone,
-				"website":  c.Website,
-				"slogan":   c.Slogan,
-				"founded":  c.Founded,
+				"type":      "company",
+				"name":      c.Name,
+				"industry":  c.Industry,
+				"email":     c.Email,
+				"phone":     c.Phone,
+				"website":   c.Website,
+				"slogan":    c.Slogan,
+				"founded":   c.Founded,
 				"employees": c.Employeees,
 			}
 		default:

@@ -7,11 +7,11 @@ import (
 
 // Address represents a physical address.
 type Address struct {
-	Street  string `json:"street"`
-	City    string `json:"city"`
-	State   string `json:"state"`
-	Country string `json:"country"`
-	Zip     string `json:"zip"`
+	Street  string  `json:"street"`
+	City    string  `json:"city"`
+	State   string  `json:"state"`
+	Country string  `json:"country"`
+	Zip     string  `json:"zip"`
 	Lat     float64 `json:"lat"`
 	Lng     float64 `json:"lng"`
 }
@@ -69,8 +69,8 @@ func GenerateAddress(rng *rand.Rand) Address {
 	state := stateCode(rng)
 	country := countries[rng.IntN(len(countries))]
 	zip := fmt.Sprintf("%05d", 10000+rng.IntN(90000))
-	lat := roundTo(40.7128 + (rng.Float64()-0.5)*40, 4)
-	lng := roundTo(-74.0060 + (rng.Float64()-0.5)*60, 4)
+	lat := roundTo(40.7128+(rng.Float64()-0.5)*40, 4)
+	lng := roundTo(-74.0060+(rng.Float64()-0.5)*60, 4)
 
 	return Address{
 		Street:  street,
