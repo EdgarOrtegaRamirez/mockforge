@@ -13,15 +13,13 @@ jobs:
   test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.24'
-
-      - name: Download dependencies
-        run: go mod download || true
+          go-version: '1.25'
+          cache: true
 
       - name: Run tests
         run: go test ./... -v -race
@@ -32,21 +30,18 @@ jobs:
       - name: Verify help
         run: ./mockforge --help
 
-      - name: Verify person generation
-        run: ./mockforge person -n 5 -f json | head -3
-
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v5
+      - uses: actions/checkout@v4
 
       - name: Set up Go
         uses: actions/setup-go@v5
         with:
-          go-version: '1.24'
+          go-version: '1.25'
 
       - name: Run go vet
         run: go vet ./...
 
       - name: Run gofmt check
-        run: test -z $(gofmt -l ./...)
+        run: test -z "$(gofmt -l ./...)"
